@@ -101,3 +101,34 @@ adding = function (a: number, b: number): number {
 
 adding = (a, b) => a + b;
 
+// Structural Typing ------------------------------------------------------
+
+type User = { id: string };
+type Product = { id: string };
+
+let user: User = { id: 'user-123' };
+let product: Product = { id: 'product_123' };
+
+user = product;
+product = user;
+
+// Extra info is accepted by TypeScript
+
+type Point2D = { x: number, y: number };
+type Point3D = { x: number, y: number, z: number };
+
+let point2D: Point2D = { x: 2, y: 4 };
+let point3D: Point3D = { x: 2, y: 6, z: 9 };
+
+//Extra Info ok
+point2D = point3D;
+function takesPoint2D(point: Point2D) { /* ... */ }
+takesPoint2D(point3D);
+
+//Error missing info(z is missing)
+point2D = point3D;
+function takesPoint3D(point: Point3D) { /* ... */ }
+//takesPoint3D(point2D); //Error
+
+// Classes------------------------------------------------------------------
+
