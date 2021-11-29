@@ -249,7 +249,6 @@ pointing = { x: 1, y: 1 };
 console.log(`${pointing.x}, ${pointing.y}`);
 
 // Now in a Class
-
 class Animals {
     readonly name: string;
     constructor(name: string){
@@ -261,3 +260,31 @@ const sheep = new Animals('sheep');
 console.log(sheep.name); // It is just allow reading 
 // sheep.name = 'Wolf' //Error as it is readonly
 
+// Union Types-----------------------------------------------------------------
+
+type Padding = 
+    | number 
+    | string;
+
+/**
+ * Takes a string and add `padding`to the left.
+ * If `padding` is a number, then that number of spaces is added to the left.
+ * If `padding` is a string, then `padding` is appended to the left.
+ */
+
+function formatCommandLine(input: string, padding: Padding) {
+  
+    if (typeof padding === 'number') {
+        return Array(padding + 1).join(' ') + input;
+    } 
+    
+    if (typeof input === 'string') {
+        return padding + input;
+    }
+    throw new Error(`Expected number or string, got '${padding}'.'`)
+}
+
+console.log(formatCommandLine('Hello', 4)); // '     Hello'
+console.log(formatCommandLine('Hello', ' ')); // '  Hello'
+console.log(formatCommandLine('Hello', '---')); //'-----Hello'
+//console.log(formatCommandLine('Hello', false)); //'Error'
