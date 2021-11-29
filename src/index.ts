@@ -226,5 +226,38 @@ const mainAsync = async () => {
 
 mainAsync();
 
+// Readonly Modifier --------------------------------------------------------------------
 
+type Pointed = {
+    readonly x: number,
+    readonly y: number,
+};
+
+let pointing: Pointed = {
+    x: 0,
+    y: 0
+};
+
+//Variable assigment
+pointing = { x: 1, y: 1 };
+
+//Property assigment
+//pointing.x = 1; //Error as it is readonly
+//pointing.y = 1; //Error as it is readonly
+
+//Property Read
+console.log(`${pointing.x}, ${pointing.y}`);
+
+// Now in a Class
+
+class Animals {
+    readonly name: string;
+    constructor(name: string){
+        this.name = name;
+    }
+}
+
+const sheep = new Animals('sheep');
+console.log(sheep.name); // It is just allow reading 
+// sheep.name = 'Wolf' //Error as it is readonly
 
