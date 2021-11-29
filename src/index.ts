@@ -69,3 +69,35 @@ const point: Point1 = { x: 0, y: 0 };
 // All other behaviours are the same as 'let'
 point.x = 123;
 point.y = 456;
+
+// Functions--------------------------------------------------------------------
+
+function add(a: number, b: number): number {
+    return a + b;
+}
+
+function log(message: string): void {
+    console.log('LOG:' + message);
+}
+
+//Multi parameter function with spread (all parameters needed)
+function sum(...values: number[]) {
+    return values.reduce((prev, curr) => {
+        return prev + curr;
+    });
+}
+
+sum(1,2);
+sum(1,2,3);
+
+//Now with alias type
+type Add = (a: number, b: number) => number;
+
+let adding: Add;
+
+adding = function (a: number, b: number): number {
+    return a + b;
+};
+
+adding = (a, b) => a + b;
+
