@@ -198,5 +198,19 @@ let hi: any = load();
 
 const trimmed = (hi as string).trim();
 
+// Type Castings--------------------------------------------------------------
+
+let leet;
+
+//Later
+leet = '1234';
+
+//Use as number
+const number = +leet; //Convert String to a number
+
+console.log(number === 1234); // True
+console.log(number); // '1337'
+
+
 
 
