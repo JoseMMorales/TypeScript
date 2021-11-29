@@ -155,3 +155,19 @@ class Bird extends Animal {
        console.log(`${this.name} flew ${distanceInMeters}m.`);
    }
 }
+
+// Generics------------------------------------------------------
+
+class Queue<T> {
+    data: T[] = [];
+    push(item: T) { this.data.push(item); }
+    pop(): T | undefined { return this.data.shift(); }
+}
+
+const queue = new Queue<number>();
+queue.push(123);
+queue.push(456);
+
+console.log(queue.pop()?.toPrecision(1));
+
+
