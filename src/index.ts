@@ -326,3 +326,18 @@ function logResult(result: ValidationResult) {
         console.log('Failure, error reason: ', result.errorValidation);
     }
 }
+
+// Null Vs Undefined----------------------------------------------------------------
+function decoration(value: string | null | undefined) {
+    //If condition avoid show TypeScript error when value is null | undefined
+    if (value == null) {
+        return value;
+    }
+    return `-- ${value?.trim()} --`;
+}
+
+console.log(decoration('Hello')); //--Hello--
+console.log(decoration('Hello World  ')); //--Hello World--
+
+console.log(decoration(null)); //null
+console.log(decoration(undefined)); //undefined
