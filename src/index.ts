@@ -302,3 +302,27 @@ function rollDice() {
 *       throw new Error('Not possible!');
 *   }
 */
+
+// Discriminated Unions------------------------------------------------------------
+type ValidationSuccess = {
+    isValid: true,
+    validatedValue: string,
+}
+
+type ValidationFailure = {
+    isValid: false,
+    errorValidation: string,
+}
+
+type ValidationResult = 
+    | ValidationSuccess
+    | ValidationFailure;
+
+function logResult(result: ValidationResult) {
+    if (result.isValid === true) {
+        console.log('Success, validated value: ', result.validatedValue);
+    }
+    if (result.isValid === false) {
+        console.log('Failure, error reason: ', result.errorValidation);
+    }
+}
