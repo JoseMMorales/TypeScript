@@ -170,4 +170,24 @@ queue.push(456);
 
 console.log(queue.pop()?.toPrecision(1));
 
+// Special Types: any and unknown---------------------------------
+
+let exampleAny: any;
+let exampleUnknown: unknown;
+
+//any 
+exampleAny = 123;
+exampleAny = 'Hello';
+
+//unknown
+exampleUnknown = 123;
+exampleUnknown = 'Hello';
+
+//any 
+exampleAny.allows.anything.you.can.imagine();
+let anyBoolean: boolean = exampleAny;
+
+//Unknown 
+//exampleUnknown.trim(); // Error not assignable as unknown
+//let unknownSetBool: boolean = exampleUnknown; // Error not assignable as unknown
 
