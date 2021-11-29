@@ -191,3 +191,12 @@ let anyBoolean: boolean = exampleAny;
 //exampleUnknown.trim(); // Error not assignable as unknown
 //let unknownSetBool: boolean = exampleUnknown; // Error not assignable as unknown
 
+// Type Assetions------------------------------------------------------------------
+const load = () => (console.log("Function to be called"))
+
+let hi: any = load();
+
+const trimmed = (hi as string).trim();
+
+
+
