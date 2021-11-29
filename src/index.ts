@@ -132,3 +132,26 @@ function takesPoint3D(point: Point3D) { /* ... */ }
 
 // Classes------------------------------------------------------------------
 
+class Animal {
+    name; // Accessible everywhere
+    //private name; // If private not accessible from instance or extention
+    //protected name; //If protected just accessible from extension
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    move(distanceInMeters: number): void {
+        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+}
+
+let cat = new Animal('Cat');
+cat.move(10);
+cat.name = 'Dog';
+
+class Bird extends Animal {
+   fly(distanceInMeters: number) {
+       console.log(`${this.name} flew ${distanceInMeters}m.`);
+   }
+}
