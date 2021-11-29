@@ -32,3 +32,27 @@ class Queue<T> {
 }
 
 let queue: Queue<number> = new Queue();
+
+// Arrays and Tuples
+
+// Array Type Shortcut
+let numberArray: number[] = [1, 2, 3];
+// Or
+let numberArray1: Array<number> = [1, 2, 3];
+
+// Usage assigning number to the array 
+numberArray = [1]; //OK
+numberArray = [1, 2, 3, 4, 5]; //OK
+//numberArray = ['Hello']; !!Error occurred, not able to be assigned to a number (As string)
+
+// Tuple
+let tuple: [number, number] = [0, 0];
+
+// Usage
+tuple = [1, 2]; // Ok
+tuple = [2, 8]; //Ok
+//tuple = [5]; !!Error occurred, as not two member of Array are assigned
+//tuple = [5, 6, 7]; !!Error occurred, as not two member of Array are assigned
+//tuple = ['string', 3]; !!Error occurred, as not two able to assign to a number (As string)
+
+
