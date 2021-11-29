@@ -58,4 +58,14 @@ let unit: Point = {
     y: 0,
 };
 
+// Const Declarations-----------------------------------------------------------
 
+type Point1 = { x: number, y: number };
+
+const point: Point1 = { x: 0, y: 0 };
+
+// point = { x: 1, y: 2 }; !!Error as it is a Const Variable
+
+// All other behaviours are the same as 'let'
+point.x = 123;
+point.y = 456;
