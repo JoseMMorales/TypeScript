@@ -635,3 +635,28 @@ console.log(hellos);
 
 const h_e_l_l_o = reverse(['h', 'e', 'l', 'l', 'o']); //['o', 'l', 'l', 'e', 'h']
 console.log(h_e_l_l_o);
+
+// Call Signatures---------------------------------------------------------------
+
+//One way of declaring the type of the function
+
+type Adde = (a: number, b: number) => number;
+
+//Another way using signatures on the body block
+
+//Type Alias
+ type Adde1 = {
+    (a: number, b: number): number
+ };
+
+ //Interface Alias
+ interface Adde2 {
+    (a: number, b: number): number,
+    (a: number, b: number, c: number): number, // Overloading with new member in the interface
+    debugName?: string,
+ };
+
+const adde: Adde = (a: number, b: number) => {
+    return a + b;
+};
+add.debbugName = 'Addition Function';
