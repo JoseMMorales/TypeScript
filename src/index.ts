@@ -844,3 +844,41 @@ type PersonResponse = typeof PersonRespone;
 function processResponse(person: PersonResponse) {
     console.log('Full name:', `${person.firstName} ${person.lastName}`);    
 }
+
+// LookUp Types ----------------------------------------------------------------
+
+export type biggestObject = {
+    consent: {
+        understandingInformation: boolean,
+    },
+    payment: {
+        creditCertification: boolean,
+        credit: {
+            name: string,
+            address: string,
+        }[],
+    },
+    gender: string,
+    dob: string,
+    driver: {
+        licenseNumber: string,
+        expiryDate?: string,
+    }
+}
+
+//UI
+type PaymentRequest = biggestObject['payment'];
+
+export function getLicenseNumber(): biggestObject['driver']  {
+    return {
+        licenseNumber: '12345thh',
+        expiryDate: undefined
+    }
+};
+
+export function getPayment(): PaymentRequest {
+    return {
+        creditCertification: true,
+        credit: [],
+    }
+}
