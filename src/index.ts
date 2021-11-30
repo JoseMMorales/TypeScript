@@ -469,7 +469,7 @@ export const poini: Poni3D = {
     z: 0,
 };
 
-// Never Type ---------------------------------------------
+// Never Type -----------------------------------------------------------
 
 // Assign a value to a never variable will return an Error
 //let never: never = 123;
@@ -507,3 +507,27 @@ function area(s: Shape) {
     const _ensureAllCaseAreHandled: never = s;
     return _ensureAllCaseAreHandled;
 }
+
+// Implements keyword -----------------------------------------------------
+
+type Animalss = {
+    name: string,
+    voice(): string,
+};
+
+function logi(animal: Animalss) {
+    console.log(`Animal ${animal.name}: ${animal.voice()}`);
+};
+
+class Cat implements Animalss {
+    constructor(public name: string) {}
+    voice() { return 'meow'; };
+}
+
+class Dog implements Animalss {
+    constructor(public name: string) {}
+    voice() { return 'wow'; };
+}
+
+logi(new Cat('Salem'));
+logi(new Dog('Lassie'));
