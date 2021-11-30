@@ -728,5 +728,24 @@ const moved = move(po, 10, 10);
 console.log(moved); // [10, 10]
 console.log(po); // [0, 0]
 
+// Double Assertion---------------------------------------------------------
+
+type Code2d = { x: number, y: number };
+type Code3d = { x: number, y: number, z: number};
+type Persoins = { name: string, email: string }; 
+
+let ponity2d: Code2d = { x: 3, y: 2 };
+let pointy3d: Code3d = { x: 2, y: 5, z: 9};
+let persoinit: Persoins = { name: 'John Done', email: 'john@gmail.com' };
+
+ponity2d = pointy3d //True
+//pointy3d = ponity2d //Error is missing z
+pointy3d = ponity2d as Code3d; // True as adopting second variable properties
+
+//persoinit = pointy3d; //Error not same properties
+//pointy3d = persoinit; //Error not same properties
+//pointy3d = persoinit as Code3d //Error not trusting enough 
+pointy3d = persoinit as unknown as Code3d // Ok: I doubly trust you
+
 
 
