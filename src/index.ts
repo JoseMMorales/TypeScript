@@ -531,3 +531,33 @@ class Dog implements Animalss {
 
 logi(new Cat('Salem'));
 logi(new Dog('Lassie'));
+
+// Definite Assigment Assertion --------------------------------------------
+
+// ! mark is used to tell TypeScript that dice is undefined 
+let dice!: number;
+function rolDice() {
+    dice = (Math.floor(Math.random() * 6) + 1);
+}
+rolDice();
+
+// We will find an Error without adding ! mark 
+// Error: "dice" is used before being assigned 
+console.log('Current Dice Value', dice);
+console.log('Current Dice Value', dice);
+
+// Now in a Class------
+
+// ! mark and adding at the end of the variable undefined is the same meaning
+class Buah {
+    x: number | undefined;
+    y: number | undefined;
+    constructor() {
+        this.moveRandom();
+    }
+    moveRandom() {
+        this.x = Math.random();
+        this.y = Math.random();
+    }
+}
+
