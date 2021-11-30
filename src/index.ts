@@ -593,3 +593,28 @@ function areas(shape: Shaped) {
     return _ensure;
 }
 
+// Assertion functions----------------------------------------------------
+
+type PersonBlond = {
+    name: string,
+    dateOfBirth?: Date,
+};
+
+function assert(condition: unknown, message: string): asserts condition {
+    if (!condition) throw new Error(message);
+}
+
+function assertDate(value: unknown): asserts value is Date {
+    if(value instanceof Date) return;
+    else throw new TypeError('value i snot a Date');
+}
+
+const maybePerson = loadPerson();
+
+assert(maybePerson != null, 'Could not load person');
+console.log('Name:', maybePerson.name);
+
+assertDate(maybePerson.dateOfBirth);
+console.log('Date Of Birth:', maybePerson.dateOfBirth.toISOString());
+
+function loadPerson(): any { }
