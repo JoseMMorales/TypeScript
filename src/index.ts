@@ -333,7 +333,7 @@ function decoration(value: string | null | undefined) {
     if (value == null) {
         return value;
     }
-    return `-- ${value?.trim()} --`;
+    return `-- ${value.trim()} --`;
 }
 
 console.log(decoration('Hello')); //--Hello--
@@ -341,3 +341,40 @@ console.log(decoration('Hello World  ')); //--Hello World--
 
 console.log(decoration(null)); //null
 console.log(decoration(undefined)); //undefined
+
+// Intersection Type----------------------------------------------------------------
+
+type Section2D = {
+    x: number,
+    y: number,
+};
+
+type Section3D = Section2D  & {
+    z: number,
+};
+
+// Another Example 
+
+type Person = { name: string };
+
+type Email = { email: string };
+
+type Phone = { phone: string };
+
+type ContactDetails = 
+    & Person 
+    & Email 
+    & Phone;
+
+function contact(details: ContactDetails) {
+    console.log(`Dear ${details.name}
+    Hope you have received my email sent to ${details.email}
+    We will you call to ${details.phone}`);
+}
+
+//Calling the function passing parameters
+contact({
+    name: 'Jose',
+    email: 'email@email.com',
+    phone: '321654987'
+})
