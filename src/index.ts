@@ -433,3 +433,38 @@ const poin = initialize();
 //Wee need to add ! mark as it point values are null initially
 console.log('After initialized', poin.x, poin.y);
 
+// Interfaces --------------------------------------------------------------------
+
+type Pon2D = {
+    x: number,
+    y: number,
+};
+
+//Intersection type 
+type Pon3D = Pon2D & {
+    z: number,
+};
+
+export const poi: Pon3D = {
+    x: 0,
+    y: 0,
+    z: 0,
+};
+
+// Interface of types above ----
+
+interface Poni2D {
+    x: number,
+    y: number,
+};
+
+//Intersection type 
+interface Poni3D extends Poni2D {
+    z: number,
+};
+
+export const poini: Poni3D = {
+    x: 0,
+    y: 0,
+    z: 0,
+};
