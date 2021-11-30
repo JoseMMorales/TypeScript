@@ -815,3 +815,32 @@ console.log(john.fullName); // John Doe
 
 const jane = addFullName({ firstName: 'Jane', lastName: 'Smith' });
 
+// Typeof Type Operator--------------------------------------------------------
+
+const centerr = {
+    x: 0,
+    y: 0,
+    z: 0,
+};
+
+//Later
+const unite: typeof centerr = {
+    x: centerr.x + 1,
+    y: centerr.y + 1,
+    z: centerr.z + 1,
+}
+
+// Another Example......
+
+const PersonRespone = {
+    "name": "John",
+    "email": "john@gmail.com",
+    "firstName": "john",
+    "lastName": "Doe",
+};
+
+type PersonResponse = typeof PersonRespone;
+
+function processResponse(person: PersonResponse) {
+    console.log('Full name:', `${person.firstName} ${person.lastName}`);    
+}
