@@ -561,3 +561,35 @@ class Buah {
     }
 }
 
+// User Defined Type Guards---------------------------------------------------
+
+type Squared = {
+    size: number,
+};
+type Rectangles = {
+    width: number,
+    height: number,
+};
+type Shaped = Squared | Rectangles;
+
+// Making an individual guard to each type make a boolean  
+// outcome in areas function
+
+function isSquared(shape: Shaped): shape is Squared {
+    return 'size' in shape;
+};
+
+function isRectanguled(shape: Shaped): shape is Rectangles {
+    return 'width' in shape;
+}
+
+function areas(shape: Shaped) {
+    if (isSquared(shape)) {
+        return shape.size * shape.size;
+    } else if (isRectanguled(shape)) {
+        return shape.width * shape.height;
+    }
+    const _ensure: never = shape;
+    return _ensure;
+}
+
