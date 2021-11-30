@@ -378,3 +378,25 @@ contact({
     email: 'email@email.com',
     phone: '321654987'
 })
+
+// Optional Modifier-------------------------------------------------------
+
+type Someone = {
+    name: string,
+    email: string,
+    phone?: string,
+}
+
+const Bruce: Someone = {
+    name: 'Bruce',
+    email: 'bruce@gmail.com',
+    phone: '123',
+}
+
+// Or---
+
+const Alfred: Someone = {
+    name: 'Bruce',
+    email: 'bruce@gmail.com',
+    phone: undefined, // Given by default
+}
