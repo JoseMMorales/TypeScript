@@ -618,3 +618,20 @@ assertDate(maybePerson.dateOfBirth);
 console.log('Date Of Birth:', maybePerson.dateOfBirth.toISOString());
 
 function loadPerson(): any { }
+
+// Function Overloading-------------------------------------------------------
+function reverse(string: string): string;
+function reverse(stringArray: string[]): string[];
+function reverse(stringOrStringArray: string | string[]): string | string[] {
+    if (typeof stringOrStringArray == 'string') {
+        return stringOrStringArray.split('').reverse().join('');        
+    } else {
+        return stringOrStringArray.splice(0).reverse();
+    }
+}
+
+const hellos = reverse('hello'); // 'olleh'
+console.log(hellos);
+
+const h_e_l_l_o = reverse(['h', 'e', 'l', 'l', 'o']); //['o', 'l', 'l', 'e', 'h']
+console.log(h_e_l_l_o);
