@@ -714,3 +714,19 @@ console.log(result, result.email);  // Undefined, Error
 
 persons['john'] = { displayName: 'John Done', email: 'john@gmail.com' };
 
+// Readonly Arrays and Tuples-----------------------------------------------
+
+type Pointend = readonly [number, number];
+
+function move(point: Pointend, x: number, y: number) {
+    return [point[0] + x, point[1] + y];
+}
+
+const po: Pointend = [0, 0];
+const moved = move(po, 10, 10);
+
+console.log(moved); // [10, 10]
+console.log(po); // [0, 0]
+
+
+
