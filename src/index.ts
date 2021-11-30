@@ -747,5 +747,26 @@ pointy3d = ponity2d as Code3d; // True as adopting second variable properties
 //pointy3d = persoinit as Code3d //Error not trusting enough 
 pointy3d = persoinit as unknown as Code3d // Ok: I doubly trust you
 
+// Const Assertion---------------------------------------------------------
 
+const king = 'Elvis';
+//king = 'John'; //Error not assignable as it is constant
+const upperCased = king.toUpperCase(); // king === 'elvis
 
+const dave = {
+    name: 'dave',
+    role: 'drummer',
+    skills: ['drumming', 'headbanging'],
+} as const;
+
+/*
+dave = {           //Error not assignable as it is constant
+    name: 'grohl',
+    role: 'singer',
+    skills: ['singing', 'drumming', 'headbanging'],
+};
+
+dave.name = 'grohl'; // Error is readonly
+dave.role = 'singer'; // Error is readonly
+dave.skills.unshift('singing'); // Error is readonly
+*/
