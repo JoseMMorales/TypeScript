@@ -468,3 +468,42 @@ export const poini: Poni3D = {
     y: 0,
     z: 0,
 };
+
+// Never Type ---------------------------------------------
+
+// Assign a value to a never variable will return an Error
+//let never: never = 123;
+
+// Example ---
+type Square = {
+    kind: 'square',
+    size: number,
+};
+
+type Rectangle = {
+    kind: 'rectangle',
+    height: number,
+    width: number,
+};
+
+type Circle = {
+    kind: 'circle',
+    radius: number,
+};
+
+type Shape = 
+    | Square
+    | Rectangle
+    | Circle;
+
+function area(s: Shape) {
+    if (s.kind === 'square') {
+        return s.size * s.size;
+    } else if (s.kind === 'rectangle') {
+        return s.width * s.height;
+    } else if (s.kind === 'circle') {
+        return Math.PI * (s.radius ** 2);
+    }
+    const _ensureAllCaseAreHandled: never = s;
+    return _ensureAllCaseAreHandled;
+}
