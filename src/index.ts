@@ -687,3 +687,30 @@ new GitResetCommand().execute();
 new GitFetchCommand().execute();
 
 //new Command(); //Cannot create an instance of an abstract class.
+
+// Index Signatures------------------------------------------------
+
+type Persony = {
+    displayName: string,
+    email: string,
+};
+
+type PersonDicctionary = {
+    [username: string]: Persony;
+};
+
+const persons: PersonDicctionary = {
+    jane: { displayName: 'Jane Done', email: 'jane@gmail.com' }
+};
+
+persons['john'] = { displayName: 'John Done', email: 'john@gmail.com' };
+
+console.log(persons['john']);
+
+delete persons['john'];
+
+const result = persons['missing'];
+console.log(result, result.email);  // Undefined, Error
+
+persons['john'] = { displayName: 'John Done', email: 'john@gmail.com' };
+
