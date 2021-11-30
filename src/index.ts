@@ -400,3 +400,36 @@ const Alfred: Someone = {
     email: 'bruce@gmail.com',
     phone: undefined, // Given by default
 }
+
+// Non-null Assertion Operator --------------------------------------------
+
+type Poin = {
+    x: number,
+    y: number,
+};
+
+/*
+    let poin: Poin;
+    function initialize() {
+        poin = { x: 1, y: 9 };
+    }
+*/
+
+//initialize();
+
+//Wee need to add ! mark as it point values are null initially
+//console.log('After initialized', poin!.x, poin!.y);
+
+// Solution---------------
+// initialize functions is already invoked before to print with console.log
+// avoiding ! mark when calling x and y
+
+function initialize(): Point {
+    return { x: 1, y: 9 };
+}
+
+const poin = initialize();
+
+//Wee need to add ! mark as it point values are null initially
+console.log('After initialized', poin.x, poin.y);
+
