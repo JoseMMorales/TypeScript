@@ -882,3 +882,32 @@ export function getPayment(): PaymentRequest {
         credit: [],
     }
 }
+
+// keyof type operator-----------------------------------------------------
+
+type Peron = {
+    name: string,
+    age: number,
+    location: string,
+};
+
+const johnny: Peron = {
+    name: 'John',
+    age: 76,
+    location: 'Malaga',
+};
+
+function logGet<Obj, Key extends keyof Obj>(obj: Obj, key: Key) {
+    const value = obj[key];
+    console.log('Getting:', key, value);
+    return value;
+}
+
+const age = logGet(johnny, 'age'); // 76
+
+function logSet<Obj, Key extends keyof Obj>(obj: Obj, key: Key, value: Obj[Key]) {
+    console.log('Setting:', key, value);
+    obj[key] = value;
+}
+
+logSet(johnny, 'age', 36);
