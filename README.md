@@ -26,7 +26,7 @@ Single index.ts doc CheatSheet in which might be used for learning purposes or e
 
 * Displaying in terminal outcome 
 
-<img width="298" alt="Watching TypeScript" src="https://user-images.githubusercontent.com/43299285/143830937-49ac4142-f887-4151-9c55-324fb10af613.PNG">
+<img width="100%" alt="Watching TypeScript" src="https://user-images.githubusercontent.com/43299285/143830937-49ac4142-f887-4151-9c55-324fb10af613.PNG">
 
 * Enter in new terminal `node lib/index.js` to see outcome of TS file when compiling.
 
