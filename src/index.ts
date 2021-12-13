@@ -1,5 +1,7 @@
 // Hello World Message with TypeScript----------------------------
 
+import { type } from "os";
+
 let message: string = 'Hello world';
 message += ' again';
 console.log(message);
@@ -1070,4 +1072,41 @@ class State<T> {
 const state = new State({ x: 0, y: 0 });
 state.update({ y: 123 });
 console.log(state.current);
+
+// Partial<T>------------------------------------------------------------
+
+/**
+ * Make all properties in T optional 
+ */
+
+/**
+ * Compiler Partial Type not needed to type 
+ * just make hover on Partial below to see 
+ * type Partial already assigned
+ * 
+ *  export type Partial<T> = {
+ *     [P in keyof T]?: T[P]
+ *  };
+ */
+
+type Pointinete = { x: number, y: number };
+
+// Same as `{ x?: number, y?: number }`
+type PartialPointinete = Partial<Pointinete>;
+
+// Real Case -----------------------------------------------------------
+
+class Stated<T> {
+    constructor(public current: T) { }
+    // Only need to pass in the properties you want changed
+    update(next: Partial<T>) {
+        this.current = { ...this.current, ...next };
+    }
+}
+
+// Usage ................
+
+const stat = new Stated({x: 0, y: 0});
+stat.update({y: 20});
+console.log(stat.current);
 
