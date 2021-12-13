@@ -574,8 +574,10 @@ type Rectangles = {
 };
 type Shaped = Squared | Rectangles;
 
-// Making an individual guard to each type make a boolean  
-// outcome in areas function
+/**
+ *  Making an individual guard to each type make a boolean  
+ *  outcome in function "areas"
+ */ 
 
 function isSquared(shape: Shaped): shape is Squared {
     return 'size' in shape;
@@ -885,7 +887,7 @@ export function getPayment(): PaymentRequest {
     }
 }
 
-// keyof type operator-----------------------------------------------------
+// Keyof type operator-----------------------------------------------------
 
 type Peron = {
     name: string,
@@ -914,7 +916,7 @@ function logSet<Obj, Key extends keyof Obj>(obj: Obj, key: Key, value: Obj[Key])
 
 logSet(johnny, 'age', 36);
 
-// Conditiona Types-----------------------------------------------------
+// Conditional Types-----------------------------------------------------
 
 type IsNumber<T> =
 T extends number 
@@ -1110,7 +1112,7 @@ const stat = new Stated({x: 0, y: 0});
 stat.update({y: 20});
 console.log(stat.current);
 
-// Partial<T>------------------------------------------------------------
+// Required<T>------------------------------------------------------------
 
 // Optional members for customers
 type CircleConfig = {
@@ -1139,3 +1141,15 @@ class CircleDraw {
         
     }
 }
+
+// Readonly<T>------------------------------------------------------------
+
+function makeReadonly<T>(object: T): Readonly<T> {
+    return Object.freeze({ ...object });
+}
+
+const editablePoint = { x: 0, y: 0 };
+editablePoint.x = 2;
+
+const readOnlyPoint = makeReadonly(editablePoint);
+//readOnlyPoint.x = 3; //Error readonly
