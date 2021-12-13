@@ -1048,14 +1048,14 @@ const centering : ReadOnlyPoint = {
 
 // Readonly is sorted out ------------------------------------------------------------
 
+// Not needed to add as it is part of the compiler .....
+type ReadOnlyP<T> = {
+    readonly [Item in keyof T]: T[Item];
+};
+
 const centered : ReadOnlyP<Pointy> = {
     x: 0,
     y: 0,
     z: 0,
 };
 
-type ReadOnlyP<T> = {
-    readonly [Item in keyof T]: T[Item];
-};
-
-centered.x = 100; // Should Error
