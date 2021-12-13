@@ -9,9 +9,10 @@ Single index.ts doc CheatSheet in which might be used for learning purposes or e
 * TypeScript ^4.5.2 (Follow commands as following...).
 
 ## Run this project...
+* git clone `https://github.com/JoseMMorales/TypeScript.git`
+* `cd Typescript`
 * `npm install`
 * `npm start`
-* 
 
 ## Advising of how to start a Typescript project from Scratch..
 * `npm init -y`
@@ -25,7 +26,6 @@ Single index.ts doc CheatSheet in which might be used for learning purposes or e
 <img width="298" alt="Watching TypeScript" src="https://user-images.githubusercontent.com/43299285/143830937-49ac4142-f887-4151-9c55-324fb10af613.PNG">
 
 * Enter in new terminal `node lib/index.js` to see outcome of TS file when compiling.
-
 
 # CheatSheet sections at index.ts...
 ## Beginners...
