@@ -1024,4 +1024,38 @@ type UnboxArray<T> =
      );
  }
 
+ // Mapped Types -------------------------------------------------
 
+export type Pointy = {
+    x: number,
+    y: number,
+    z: number,
+};
+
+// Readonly will fail ------------------------------------------------------------
+
+type ReadOnlyPoint = {
+    readonly [Item in 'x' | 'y' | 'z']: number;
+};
+
+const centering : ReadOnlyPoint = {
+    x: 0,
+    y: 0,
+    z: 0,
+};
+
+//centering.x = 100; // Should Error as it is readonly type
+
+// Readonly is sorted out ------------------------------------------------------------
+
+const centered : ReadOnlyP<Pointy> = {
+    x: 0,
+    y: 0,
+    z: 0,
+};
+
+type ReadOnlyP<T> = {
+    readonly [Item in keyof T]: T[Item];
+};
+
+centered.x = 100; // Should Error
