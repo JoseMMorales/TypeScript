@@ -911,3 +911,53 @@ function logSet<Obj, Key extends keyof Obj>(obj: Obj, key: Key, value: Obj[Key])
 }
 
 logSet(johnny, 'age', 36);
+
+// Conditiona Types-----------------------------------------------------
+
+type IsNumber<T> =
+T extends number 
+? 'number'
+: 'other';
+
+type WithNumber = IsNumber<number>;
+type WithNoNumber = IsNumber<string>;
+
+// Another Example------------------------------------------------------
+const isNumber = (value: unknown) => {
+    typeof value === 'number'
+    ? 'number'
+    : 'other';
+}
+
+const withNumber = isNumber(23);
+const isNotNumber = isNumber('string');
+
+// Another Example------------------------------------------------------
+
+export type TypeName<T> = 
+T extends string ? 'string' :
+T extends number ? 'number' :
+T extends boolean ? 'boolean' :
+T extends undefined ? 'undefined' :
+T extends symbol ? 'symbol' :
+T extends bigint ? 'bigint' :
+T extends Function ? 'Function' : 
+T extends null ? 'null' :
+'object';
+
+function typeName<T>(t: T): TypeName<T> {
+    if (t === null) return 'null' as TypeName<T>;
+    return typeof t as TypeName<T>; 
+}
+
+const strN = typeName('hello world');
+const num = typeName(123);
+const bool = typeName(true);
+const undef = typeName(undefined);
+const sym = typeName(Symbol('star'));
+const big = typeName(24n);
+const fun = typeName(function () {});
+const obj = typeName(null);
+
+console.log(typeof null);
+
