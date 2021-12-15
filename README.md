@@ -3,7 +3,7 @@
   TypeScript CheatSheet Project.
 </h1>
 
-Single index.ts doc CheatSheet in which might be used for learning purposes or even guide route if at any point a doubt pops up in our mind when developing JS. We can run the whole project to appreciate outcome compiled in any section you are interested in. Just follow commands below as starting point setting up TypeScript as first step using NodeJs and NPM. Please be aware that there are to different setting ups reflected, first one to run this CheatSheet and following a second setting up in case you want to create your own TypeScript Project. 
+Single index.ts doc CheatSheet in which might be used for learning purposes or even guide route if at any point a doubt pops up in our mind when developing JS. We can run the whole project to appreciate outcome compiled in any section you are interested in. Just follow commands below as starting point setting up TypeScript as first step using NodeJs and NPM. Please be aware that there are to different setting ups reflected in this REAME, the first one to run this CheatSheet with a couple of commands, and a second one to proceed with the setting up in case you want to create your own TypeScript Project. 
 
 ## Installing
 ### Requisites to run this project:
